@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Main {
 
+    private static int []arr;
     public static void main(String[] args) {
-        int []arr;
         System.out.print("Enter array size: ");
         Scanner sc = new Scanner(System.in);
         int siz = sc.nextInt();
