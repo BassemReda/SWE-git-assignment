@@ -2,49 +2,48 @@ package com.company;
 
 import java.util.Scanner;
 
-public static void Get_Median(int []arr) {
-	int TempArr[]=new int[arr.length];
-	
-	//Take Copy from the original array
-	for(int i=0;i<arr.length;i++) {
-		TempArr[i]=arr[i];
-	}
-	
-	//Sort Array (Bubble Sort) (N^2)
-	for(int i=0;i<TempArr.length;i++) {
-		for(int j=0;j<TempArr.length;j++) {
-			//Swap
-			if(TempArr[i]>TempArr[j]) {
-				int temp=TempArr[i];
-				TempArr[i]=TempArr[j];
-				TempArr[j]=temp;
+public class Main {
+	public static void Get_Median(int []arr) {
+		int TempArr[]=new int[arr.length];
+		
+		//Take Copy from the original array
+		for(int i=0;i<arr.length;i++) {
+			TempArr[i]=arr[i];
+		}
+		
+		//Sort Array (Bubble Sort) (N^2)
+		for(int i=0;i<TempArr.length;i++) {
+			for(int j=0;j<TempArr.length;j++) {
+				//Swap
+				if(TempArr[i]>TempArr[j]) {
+					int temp=TempArr[i];
+					TempArr[i]=TempArr[j];
+					TempArr[j]=temp;
+				}
 			}
 		}
+		
+		//Get Median
+		double Median=0.0;
+		
+		//if size of array is even
+		if(TempArr.length%2==0) {
+			int index1=(TempArr.length/2)-1;
+			int index2=TempArr.length/2;
+			Median=(TempArr[index1]+TempArr[index2])/2.0;
+		}
+		//if size of array is odd
+		else {
+			int index=(TempArr.length/2);
+			Median=TempArr[index];
+		}
+		
+		//Output
+		System.out.println("Median = "+Median);
 	}
 	
-	//Get Median
-	double Median=0.0;
-	
-	//if size of array is even
-	if(TempArr.length%2==0) {
-		int index1=(TempArr.length/2)-1;
-		int index2=TempArr.length/2;
-		Median=(TempArr[index1]+TempArr[index2])/2;
-	}
-	//if size of array is odd
-	else {
-		int index=(TempArr.length/2);
-		Median=TempArr[index];
-	}
-	
-	//Output
-	System.out.println("Median = "+Median);
-}
-
-public class Main {
-
+    private static int []arr;
     public static void main(String[] args) {
-        int []arr;
         System.out.print("Enter array size: ");
         Scanner sc = new Scanner(System.in);
         int siz = sc.nextInt();
