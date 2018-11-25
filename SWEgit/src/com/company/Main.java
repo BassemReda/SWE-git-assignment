@@ -3,6 +3,7 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
+
 	public static void Get_Median(int []arr) {
 		int TempArr[]=new int[arr.length];
 		
@@ -42,6 +43,9 @@ public class Main {
 		System.out.println("Median = "+Median);
 	}
 	
+
+
+
     private static int []arr;
     public static void main(String[] args) {
         System.out.print("Enter array size: ");
