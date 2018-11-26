@@ -43,7 +43,7 @@ public class Main {
                 break;
 
             case 7: //check sorted
-
+                checkSorted();
                 break;
 
             case 8: //count primes
@@ -88,6 +88,8 @@ public class Main {
 
             case 18: //execute all
 
+                checkSorted();
+
                 break;
         }
 
@@ -114,6 +116,20 @@ public class Main {
         System.out.println("17-\tZero if less than zero");
         System.out.println("18-\tExecute All");
 
+    }
+
+    private static void checkSorted(){
+        boolean flag = true;
+        for(int i=0;i<arr.length-1;i++)
+            if (arr[i] > arr[i + 1]) {
+                flag = false;
+                break;
+            }
+
+        if(flag)
+            System.out.println("CheckSorted: True");
+        else
+            System.out.println("CheckSorted: False");
     }
 
 }
