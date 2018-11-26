@@ -4,12 +4,17 @@ import java.util.Scanner;
 
 public class Main {
 
-	public static void Get_Median(int []arr) {
+	public static void Get_Median(String []arr) {
 		int TempArr[]=new int[arr.length];
+		
+		if(!Character.isDigit(arr[0].charAt(0))) {
+			System.out.println("Median : Sorry this function run with array of numbers only !!");
+			return;
+		}
 		
 		//Take Copy from the original array
 		for(int i=0;i<arr.length;i++) {
-			TempArr[i]=arr[i];
+			TempArr[i]=Integer.parseInt(arr[i]);
 		}
 		
 		//Sort Array (Bubble Sort) (N^2)
@@ -46,16 +51,17 @@ public class Main {
 
 
 
-    private static int []arr;
+    private static String []arr;
     public static void main(String[] args) {
         System.out.print("Enter array size: ");
         Scanner sc = new Scanner(System.in);
         int siz = sc.nextInt();
-        arr = new int[siz];
-
+        arr = new String[siz];
+        
         System.out.println("Enter array elements:");
-        for(int i=0;i<siz;i++)
-            arr[i] = sc.nextInt();
+        	for(int i=0;i<siz;i++)
+                arr[i] = sc.next();
+        
 
         printMenu();
         int choice = sc.nextInt();
@@ -149,7 +155,7 @@ public class Main {
         System.out.println("10-\tShift array");
         System.out.println("11-\tDistinct array");
         System.out.println("12-\tGet the maximum 3 numbers");
-        System.out.println("13-\t Get the minimum 3 numbers");
+        System.out.println("13-\tGet the minimum 3 numbers");
         System.out.println("14-\tGet average");
         System.out.println("15-\tGet median");
         System.out.println("16-\tReturn only primes");
