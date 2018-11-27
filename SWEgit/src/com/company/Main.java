@@ -91,7 +91,7 @@ public class Main {
                 break;
 
             case 7: //check sorted
-
+                checkSorted();
                 break;
 
             case 8: //count primes
@@ -135,6 +135,7 @@ public class Main {
                 break;
 
             case 18: //execute all
+                checkSorted();      //Function number 7
             	Get_Median(arr);	//Function number 15
                 break;
         }
@@ -164,4 +165,22 @@ public class Main {
 
     }
 
+    private static void checkSorted(){
+        boolean flag = true;
+
+        try {
+            for (int i = 0; i < arr.length - 1; i++)
+                if (Integer.parseInt(arr[i]) > Integer.parseInt(arr[i + 1])) {
+                    flag = false;
+                    break;
+                }
+
+            if (flag)
+                System.out.println("CheckSorted: True");
+            else
+                System.out.println("CheckSorted: False");
+        }catch(NumberFormatException e){
+            System.out.println("CheckSorted: accepts integers only!");
+        }
+    }
 }
