@@ -4,16 +4,64 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static int []arr;
+    public static void Get_Median(String []arr) {
+        int TempArr[]=new int[arr.length];
+
+        if(!Character.isDigit(arr[0].charAt(0))) {
+            System.out.println("Median : Sorry this function run with array of numbers only !!");
+            return;
+        }
+
+        //Take Copy from the original array
+        for(int i=0;i<arr.length;i++) {
+            TempArr[i]=Integer.parseInt(arr[i]);
+        }
+
+        //Sort Array (Bubble Sort) (N^2)
+        for(int i=0;i<TempArr.length;i++) {
+            for(int j=0;j<TempArr.length;j++) {
+                //Swap
+                if(TempArr[i]>TempArr[j]) {
+                    int temp=TempArr[i];
+                    TempArr[i]=TempArr[j];
+                    TempArr[j]=temp;
+                }
+            }
+        }
+
+        //Get Median
+        double Median=0.0;
+
+        //if size of array is even
+        if(TempArr.length%2==0) {
+            int index1=(TempArr.length/2)-1;
+            int index2=TempArr.length/2;
+            Median=(TempArr[index1]+TempArr[index2])/2.0;
+        }
+        //if size of array is odd
+        else {
+            int index=(TempArr.length/2);
+            Median=TempArr[index];
+        }
+
+        //Output
+        System.out.println("Median = "+Median);
+    }
+
+
+
+
+    private static String []arr;
     public static void main(String[] args) {
         System.out.print("Enter array size: ");
         Scanner sc = new Scanner(System.in);
         int siz = sc.nextInt();
-        arr = new int[siz];
+        arr = new String[siz];
 
-        System.out.println("Enter array elements:");
+        System.out.println("Enter space separated array elements:");
         for(int i=0;i<siz;i++)
-            arr[i] = sc.nextInt();
+            arr[i] = sc.next();
+
 
         printMenu();
         int choice = sc.nextInt();
@@ -75,7 +123,7 @@ public class Main {
                 break;
 
             case 15: //get median
-
+                Get_Median(arr);
                 break;
 
             case 16: //return only primes
@@ -87,9 +135,8 @@ public class Main {
                 break;
 
             case 18: //execute all
-
-                checkSorted();
-
+                checkSorted();      //Function number 7
+                Get_Median(arr);	//Function number 15
                 break;
         }
 
@@ -109,7 +156,7 @@ public class Main {
         System.out.println("10-\tShift array");
         System.out.println("11-\tDistinct array");
         System.out.println("12-\tGet the maximum 3 numbers");
-        System.out.println("13-\t Get the minimum 3 numbers");
+        System.out.println("13-\tGet the minimum 3 numbers");
         System.out.println("14-\tGet average");
         System.out.println("15-\tGet median");
         System.out.println("16-\tReturn only primes");
@@ -120,16 +167,21 @@ public class Main {
 
     private static void checkSorted(){
         boolean flag = true;
-        for(int i=0;i<arr.length-1;i++)
-            if (arr[i] > arr[i + 1]) {
-                flag = false;
-                break;
-            }
 
-        if(flag)
-            System.out.println("CheckSorted: True");
-        else
-            System.out.println("CheckSorted: False");
+        try {
+            for (int i = 0; i < arr.length - 1; i++)
+                if (Integer.parseInt(arr[i]) > Integer.parseInt(arr[i + 1])) {
+                    flag = false;
+                    break;
+                }
+
+            if (flag)
+                System.out.println("CheckSorted: True");
+            else
+                System.out.println("CheckSorted: False");
+        }catch(NumberFormatException e){
+            System.out.println("CheckSorted: accepts integers only!");
+        }
     }
 
 }
