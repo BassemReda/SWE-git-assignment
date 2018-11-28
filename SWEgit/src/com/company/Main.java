@@ -119,7 +119,7 @@ public class Main {
                 break;
 
             case 14: //get the average
-
+               GetAverage(arr);
                 break;
 
             case 15: //get median
@@ -136,6 +136,7 @@ public class Main {
 
             case 18: //execute all
                 checkSorted();      //Function number 7
+                GetAverage(arr);    // Function number 14
             	Get_Median(arr);	//Function number 15
                 break;
         }
@@ -181,6 +182,20 @@ public class Main {
                 System.out.println("CheckSorted: False");
         }catch(NumberFormatException e){
             System.out.println("CheckSorted: accepts integers only!");
+        }
+    }
+    public static void GetAverage(String[] arr) {
+        int sum = 0;
+        if (!Character.isDigit(arr[0].charAt(0))) {
+            System.out.println("Sorry the GetAverage function run with array of Integers only ");
+            return;
+        } 
+        else {
+            for (int i = 0; i < arr.length;i++) {
+                int n =Integer.parseInt(arr[i]);
+                sum+=n;
+            }
+        System.out.println("Average : "+sum/arr.length);
         }
     }
 }
