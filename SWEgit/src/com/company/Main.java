@@ -187,7 +187,7 @@ public class Main {
     public static void GetAverage(String[] arr) {
         int sum = 0;
         if (!Character.isDigit(arr[0].charAt(0))) {
-            System.out.println("Sorry this function run with array of Integers only ");
+            System.out.println("Sorry the GetAverage function run with array of Integers only ");
             return;
         } 
         else {
@@ -195,7 +195,7 @@ public class Main {
                 int n =Integer.parseInt(arr[i]);
                 sum+=n;
             }
-        System.out.println(sum/arr.length);
+        System.out.println("Average : "+sum/arr.length);
         }
     }
 }
