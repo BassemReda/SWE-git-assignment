@@ -47,8 +47,27 @@ public class Main {
 		//Output
 		System.out.println("Median = "+Median);
 	}
-	
 
+
+    public static void zeroIfLessThanZero(String[] arr) throws NumberFormatException{
+        int temp[]=new int[arr.length];
+        try {
+            for (int i = 0; i < arr.length; i++) {
+                temp[i] = Integer.parseInt(arr[i]);
+            }
+        }
+        catch (NumberFormatException e){
+            e.printStackTrace();
+        }
+        System.out.print("Zero if less than zero : { ");
+        for(int i=0 ; i<temp.length ; i++){
+            if(temp[i] < 0){
+                temp[i] = 0;
+            }
+            System.out.print(temp[i]+" ");
+        }
+        System.out.println(" }");
+    }
 
 
     private static String []arr;
@@ -131,13 +150,14 @@ public class Main {
                 break;
 
             case 17: //zero if less than zero
-
+                zeroIfLessThanZero(arr);
                 break;
 
             case 18: //execute all
                 checkSorted();      //Function number 7
                 GetAverage(arr);    // Function number 14
             	Get_Median(arr);	//Function number 15
+                zeroIfLessThanZero(arr); //function number 17
                 break;
         }
 
