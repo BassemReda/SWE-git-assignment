@@ -67,7 +67,7 @@ public class Main {
         int choice = sc.nextInt();
         switch (choice){
             case 1: //most repeated value
-
+                MostReapetedValue(arr);
                 break;
 
             case 2: //sort
@@ -139,6 +139,7 @@ public class Main {
                 GetAverage(arr);    // Function number 14
             	Get_Median(arr);	//Function number 15
             	countPrims(arr);    //Function Number 8
+                MostReapetedValue(arr); //Function number 1
                 break;
         }
 
@@ -222,4 +223,28 @@ public class Main {
         }
 
     }
+ 
+  public static void MostReapetedValue(String arr[])
+	{
+		String mostValue="";
+		int counter=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			String tempVal=arr[i];
+			int tmpCounter=0;
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[j].equals(tempVal))
+				{
+					tmpCounter++;	
+				}
+			}
+			if(tmpCounter>counter)
+			{
+				mostValue=tempVal;
+				counter=tmpCounter;
+			}
+		}
+		System.out.println("The most repeated value is: "+mostValue);
+	}
 }
