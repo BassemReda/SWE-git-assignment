@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -99,7 +100,7 @@ public class Main {
                 break;
 
             case 9: //reverse array
-
+            	ReverseArray(arr);
                 break;
 
             case 10: //shift array
@@ -136,6 +137,7 @@ public class Main {
 
             case 18: //execute all
                 checkSorted();      //Function number 7
+                ReverseArray(arr);  // Function number 14
                 GetAverage(arr);    // Function number 14
             	Get_Median(arr);	//Function number 15
                 break;
@@ -197,5 +199,16 @@ public class Main {
             }
         System.out.println("Average : "+sum/arr.length);
         }
+    }
+	
+    public static <T> void ReverseArray(T[] array) {
+        T temp;
+        for (int i = 0; i < array.length / 2; i++) {
+            temp = array[i];
+            array[i] = array[array.length - 1 - i];
+            array[array.length - 1 - i] = temp;
+
+        }
+        System.out.println("The reversed array ---> " + Arrays.toString(array));
     }
 }
