@@ -200,36 +200,35 @@ public class Main {
     }
     public class SmallestPrime {
 
-    public static void smallest_prime ()
+    public static void smallest_prime(string []Arr) ()
    {
-    ArrayList<Integer> Arrayy = new ArrayList();
-    ArrayList<Integer> Prime = new ArrayList();
-    Scanner input = new Scanner(System.in);
-
-    int temp;
+    ArrayList<Integer> Prim_Arr = new ArrayList();
     int x;
+    int temp;
     boolean prime;
 
-
-
-     System.out.println("Enter tha data : ");
+     System.out.println("Enter Your Array : ");
     for (int i = 0; i < 5; i++)
         {
             x = input.nextInt();
-            Arrayy.add(x);
+            Arr.add(x);
         }
-        for (int i = 0; i < Arrayy.size(); i++)
+        for (int i = 0; i < Arr.size(); i++)
         {
+            if(!Character.isDigit(Arr[0].charAt(0))) {
+			System.out.println("Sorry this function run with array of numbers only !!");
+			return;}
             prime = true ;
-            if (Arrayy.get(i) == 2) {
-                Prime.add(Arrayy.get(i));
+            if (Arr.get(i) == 2) {
+                Prim_Arr.add(Arr.get(i));
                 continue ;
-        }
+                                }
 
-        for (int j = 2; j < Arrayy.get(i); j++)
+
+        for (int j = 2; j < Arr.get(i); j++)
         {
 
-                if (Arrayy.get(i) % j == 0)
+                if (Arr.get(i) % j == 0)
                 {
                     prime = false ;
                     break;
@@ -237,19 +236,22 @@ public class Main {
 
         }
             if(prime)
-                Prime.add(Arrayy.get(i));
+           Prim_Arr.add(Arr.get(i));
 
         }
 
-        int smallest;
-        smallest = Prime.get(0);
-        for (int i = 0; i < Prime.size(); i++) {
-            if (smallest > Prime.get(i) )
-                smallest= Prime.get(i);
+        int smallprime;
+        smallprime = Prim_Arr.get(0);
+        for (int i = 0; i < Prim_Arr.size(); i++) {
+            if (smallprime > Prim_Arr.get(i) )
+                smallprime = Prim_Arr.get(i);
         }
 
-                System.out.println("The Smallest Prime is: " +smallest);
+                System.out.println("The Smallest Prime is: " +smallprime);
 
-   }
 
-}}
+
+    }}
+
+
+}
