@@ -72,7 +72,7 @@ public class Main {
                 break;
 
             case 2: //sort
-	 	Arrays.sort(arr);  
+	 	sort(arr);  
     		break;
 
             case 3: //shuffle
@@ -142,6 +142,7 @@ public class Main {
             	Get_Median(arr);	//Function number 15
             	countPrims(arr);    //Function Number 8
                 MostReapetedValue(arr); //Function number 1
+		sort (arr); // function number 2 
                 break;
         }
 
@@ -265,7 +266,7 @@ public class Main {
 	}
 
 }
-public static void main(String[] args) 
+public static void sort(String[] args) 
 	{
 		int n, temp;
 		
@@ -306,4 +307,4 @@ public static void main(String[] args)
 			System.out.println(a[i]);
 		}
     
-}}
+}
