@@ -1,22 +1,21 @@
 package com.company;
-
 import java.util.Scanner;
 
 public class Main {
 
 	public static void Get_Median(String []arr) {
 		int TempArr[]=new int[arr.length];
-		
+
 		if(!Character.isDigit(arr[0].charAt(0))) {
 			System.out.println("Median : Sorry this function run with array of numbers only !!");
 			return;
 		}
-		
+
 		//Take Copy from the original array
 		for(int i=0;i<arr.length;i++) {
 			TempArr[i]=Integer.parseInt(arr[i]);
 		}
-		
+
 		//Sort Array (Bubble Sort) (N^2)
 		for(int i=0;i<TempArr.length;i++) {
 			for(int j=0;j<TempArr.length;j++) {
@@ -28,10 +27,10 @@ public class Main {
 				}
 			}
 		}
-		
+
 		//Get Median
 		double Median=0.0;
-		
+
 		//if size of array is even
 		if(TempArr.length%2==0) {
 			int index1=(TempArr.length/2)-1;
@@ -43,11 +42,11 @@ public class Main {
 			int index=(TempArr.length/2);
 			Median=TempArr[index];
 		}
-		
+
 		//Output
 		System.out.println("Median = "+Median);
 	}
-	
+
 
 
 
@@ -57,11 +56,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int siz = sc.nextInt();
         arr = new String[siz];
-        
+
         System.out.println("Enter array elements:");
         	for(int i=0;i<siz;i++)
                 arr[i] = sc.next();
-        
+
 
         printMenu();
         int choice = sc.nextInt();
@@ -83,7 +82,7 @@ public class Main {
                 break;
 
             case 5: //find smallest prime
-
+                SmallestPrime();
                 break;
 
             case 6: //check palindrome
@@ -137,7 +136,8 @@ public class Main {
             case 18: //execute all
                 checkSorted();      //Function number 7
                 GetAverage(arr);    // Function number 14
-            	Get_Median(arr);	//Function number 15
+            	Get_Median(arr);    //Function number 15
+                SmallestPrime();    //Function number 5
                 break;
         }
 
@@ -189,7 +189,7 @@ public class Main {
         if (!Character.isDigit(arr[0].charAt(0))) {
             System.out.println("Sorry the GetAverage function run with array of Integers only ");
             return;
-        } 
+        }
         else {
             for (int i = 0; i < arr.length;i++) {
                 int n =Integer.parseInt(arr[i]);
@@ -198,4 +198,51 @@ public class Main {
         System.out.println("Average : "+sum/arr.length);
         }
     }
+    public class SmallestPrime {
+
+    ArrayList<Integer> Arrayy = new ArrayList();
+    ArrayList<Integer> Prime = new ArrayList();
+    Scanner input = new Scanner(System.in);
+    boolean primenumber ;
+    int temp ;
+    int x;
+
+    public SmallestPrime() {
+
+        for (int i = 0; i < 5; i++) {
+            x = input.nextInt();
+            Arrayy.add(x);
+        }
+        for (int i = 0; i < Arrayy.size(); i++) {
+            primenumber = true ;
+            if (Arrayy.get(i) == 2) {
+                Prime.add(Arrayy.get(i));
+                continue ;
+            }
+
+            for (int j = 2; j < Arrayy.get(i); j++) {
+
+                if (Arrayy.get(i) % j == 0) {
+                    primenumber = false ;
+                    break;
+                }
+
+            }
+            if(primenumber)
+                Prime.add(Arrayy.get(i));
+
+        }
+
+        int smallest;
+        smallest = Prime.get(0);
+        for (int i = 0; i < Prime.size(); i++) {
+            if (smallest > Prime.get(i) )
+                smallest = Prime.get(i);
+        }
+
+                System.out.println("The Smallest Prime is : " + smallest);
+
+    }
+
+}
 }
