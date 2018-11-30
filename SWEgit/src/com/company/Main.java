@@ -138,6 +138,7 @@ public class Main {
                 checkSorted();      //Function number 7
                 GetAverage(arr);    // Function number 14
             	Get_Median(arr);	//Function number 15
+		MostReapetedValue(arr); //Function number 1	
                 break;
         }
 
