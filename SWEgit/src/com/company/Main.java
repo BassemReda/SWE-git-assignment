@@ -200,35 +200,43 @@ public class Main {
     }
     public class SmallestPrime {
 
+    public static void smallest_prime ()
+   {
     ArrayList<Integer> Arrayy = new ArrayList();
     ArrayList<Integer> Prime = new ArrayList();
     Scanner input = new Scanner(System.in);
-    boolean primenumber ;
-    int temp ;
+
+    int temp;
     int x;
+    boolean prime;
 
-    public SmallestPrime() {
 
-        for (int i = 0; i < 5; i++) {
+
+     System.out.println("Enter tha data : ");
+    for (int i = 0; i < 5; i++)
+        {
             x = input.nextInt();
             Arrayy.add(x);
         }
-        for (int i = 0; i < Arrayy.size(); i++) {
-            primenumber = true ;
+        for (int i = 0; i < Arrayy.size(); i++)
+        {
+            prime = true ;
             if (Arrayy.get(i) == 2) {
                 Prime.add(Arrayy.get(i));
                 continue ;
-            }
+        }
 
-            for (int j = 2; j < Arrayy.get(i); j++) {
+        for (int j = 2; j < Arrayy.get(i); j++)
+        {
 
-                if (Arrayy.get(i) % j == 0) {
-                    primenumber = false ;
+                if (Arrayy.get(i) % j == 0)
+                {
+                    prime = false ;
                     break;
                 }
 
-            }
-            if(primenumber)
+        }
+            if(prime)
                 Prime.add(Arrayy.get(i));
 
         }
@@ -237,12 +245,11 @@ public class Main {
         smallest = Prime.get(0);
         for (int i = 0; i < Prime.size(); i++) {
             if (smallest > Prime.get(i) )
-                smallest = Prime.get(i);
+                smallest= Prime.get(i);
         }
 
-                System.out.println("The Smallest Prime is : " + smallest);
+                System.out.println("The Smallest Prime is: " +smallest);
 
-    }
+   }
 
-}
-}
+}}
