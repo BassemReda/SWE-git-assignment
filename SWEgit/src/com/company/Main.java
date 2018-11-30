@@ -7,17 +7,17 @@ public class Main {
 
 	public static void Get_Median(String []arr) {
 		int TempArr[]=new int[arr.length];
-		
+
 		if(!Character.isDigit(arr[0].charAt(0))) {
 			System.out.println("Median : Sorry this function run with array of numbers only !!");
 			return;
 		}
-		
+
 		//Take Copy from the original array
 		for(int i=0;i<arr.length;i++) {
 			TempArr[i]=Integer.parseInt(arr[i]);
 		}
-		
+
 		//Sort Array (Bubble Sort) (N^2)
 		for(int i=0;i<TempArr.length;i++) {
 			for(int j=0;j<TempArr.length;j++) {
@@ -29,10 +29,10 @@ public class Main {
 				}
 			}
 		}
-		
+
 		//Get Median
 		double Median=0.0;
-		
+
 		//if size of array is even
 		if(TempArr.length%2==0) {
 			int index1=(TempArr.length/2)-1;
@@ -44,11 +44,11 @@ public class Main {
 			int index=(TempArr.length/2);
 			Median=TempArr[index];
 		}
-		
+
 		//Output
 		System.out.println("Median = "+Median);
 	}
-	
+
 
 
 
@@ -58,17 +58,17 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int siz = sc.nextInt();
         arr = new String[siz];
-        
+
         System.out.println("Enter array elements:");
         	for(int i=0;i<siz;i++)
                 arr[i] = sc.next();
-        
+
 
         printMenu();
         int choice = sc.nextInt();
         switch (choice){
             case 1: //most repeated value
-
+                MostReapetedValue(arr);
                 break;
 
             case 2: //sort
@@ -96,7 +96,7 @@ public class Main {
                 break;
 
             case 8: //count primes
-
+                countPrims(arr);
                 break;
 
             case 9: //reverse array
@@ -140,6 +140,8 @@ public class Main {
                 ReverseArray(arr);  // Function number 9
                 GetAverage(arr);    // Function number 14
             	Get_Median(arr);	//Function number 15
+            	countPrims(arr);    //Function Number 8
+                MostReapetedValue(arr); //Function number 1
                 break;
         }
 
@@ -191,7 +193,7 @@ public class Main {
         if (!Character.isDigit(arr[0].charAt(0))) {
             System.out.println("Sorry the GetAverage function run with array of Integers only ");
             return;
-        } 
+        }
         else {
             for (int i = 0; i < arr.length;i++) {
                 int n =Integer.parseInt(arr[i]);
@@ -200,6 +202,7 @@ public class Main {
         System.out.println("Average : "+sum/arr.length);
         }
     }
+
 	
     public static <T> void ReverseArray(T[] array) {
 	T copy[] = Arrays.copyOf(array, array.length);
@@ -212,4 +215,53 @@ public class Main {
         }
         System.out.println("The reversed array ---> " + Arrays.toString(copy));
     }
+
+
+    public static void countPrims(String[] arr){
+        int count = 0;
+        if(!Character.isDigit(arr[0].charAt(0))) {
+            System.out.println("countPrims : Sorry this function run with array of numbers only !!");
+            return;
+	}
+        else {
+            for (int i = 0; i< arr.length; i++){
+                int num = Integer.parseInt(arr[i]);
+                boolean flag = true;
+                for (int j = 2; j<num; j++){
+                    if(num%j == 0)
+                        flag = false;
+                 }
+                if(flag){
+                    count++;
+                }
+            }
+            System.out.println("Prime Numbers : "+count+" Numbers");
+        }
+
+    }
+ 
+  public static void MostReapetedValue(String arr[])
+	{
+		String mostValue="";
+		int counter=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			String tempVal=arr[i];
+			int tmpCounter=0;
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[j].equals(tempVal))
+				{
+					tmpCounter++;	
+				}
+			}
+			if(tmpCounter>counter)
+			{
+				mostValue=tempVal;
+				counter=tmpCounter;
+			}
+		}
+		System.out.println("The most repeated value is: "+mostValue);
+	}
+
 }
