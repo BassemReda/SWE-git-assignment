@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -70,6 +71,34 @@ public class Main {
         }
         System.out.println("}");
     }
+
+        public static void Return_Primes(String[] arr)throws NumberFormatException
+    {
+        try{
+        for(int i=0; i<arr.length; i++){
+            int x=Integer.parseInt(arr[i]);
+            boolean f=true;
+        for(int j=2 ; j<x ; j++)
+        {
+            
+            if(x%j==0)
+            {
+                f=false;
+                
+            }
+        }
+        if(f)
+            {
+            System.out.println(arr[i] + " is the prime number in the array ");
+            }
+       }
+    }   
+        catch(NumberFormatException e){
+            System.out.println("ERROR in converting string to numeric value");
+            return;
+        }
+        
+ } 
 
     private static String []arr;
     public static void main(String[] args) {
@@ -147,7 +176,7 @@ public class Main {
                 break;
 
             case 16: //return only primes
-
+		Return_Primes(arr);
                 break;
 
             case 17: //zero if less than zero
@@ -163,8 +192,12 @@ public class Main {
             	countPrims(arr);    //Function Number 8
                 MostReapetedValue(arr); //Function number 1
                 zeroIfLessThanZero(arr); //function 17
+
+		          Return_Primes(arr);
+
                 getmin3nums(arr);   //Function number 13
                 smallest_prime(arr); //Function number 5
+
                 break;
         }
 
