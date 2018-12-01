@@ -103,7 +103,7 @@ public class Main {
                 break;
 
             case 5: //find smallest prime
-
+                smallest_prime(arr);
                 break;
 
             case 6: //check palindrome
@@ -162,7 +162,8 @@ public class Main {
             	countPrims(arr);    //Function Number 8
                 MostReapetedValue(arr); //Function number 1
                 zeroIfLessThanZero(arr); //function 17
-		          getmin3nums(arr);   //Function number 13
+                getmin3nums(arr);   //Function number 13
+                smallest_prime(arr); //Function number 5
                 break;
         }
 
@@ -259,7 +260,7 @@ public class Main {
         }
 
     }
- 
+
   public static void MostReapetedValue(String arr[])
 	{
 		String mostValue="";
@@ -272,7 +273,7 @@ public class Main {
 			{
 				if(arr[j].equals(tempVal))
 				{
-					tmpCounter++;	
+					tmpCounter++;
 				}
 			}
 			if(tmpCounter>counter)
@@ -286,33 +287,86 @@ public class Main {
 
  public static void getmin3nums(String[]arr)
 	{	int TempArr[]=new int[arr.length];
-		
+
 		if(!Character.isDigit(arr[0].charAt(0))) {
 			System.out.println("Median : Sorry this function run with array of numbers only !!");
 			return;
 		}
-		
+
 		//Take Copy from the original array
 		for(int i=0;i<arr.length;i++) {
 			TempArr[i]=Integer.parseInt(arr[i]);
 		}
-	    
+
 		Arrays.sort(TempArr);
 		int[]temp=new int [TempArr.length];
 		int j=0;
 		for(int i=0;i<TempArr.length-1;i++)
 		{
-			if (TempArr[i] != TempArr[i+1]) 
-	            temp[j++] = TempArr[i]; 
+			if (TempArr[i] != TempArr[i+1])
+	            temp[j++] = TempArr[i];
 		}
 		 temp[j++] = TempArr[TempArr.length-1];
 		for(int i=0;i<j;i++)
-		{ 
-			TempArr[i]=temp[i]; 
+		{
+			TempArr[i]=temp[i];
 		}
 		System.out.println(" the minmum 3 numbers is : ");
 		System.out.println(TempArr[0]);
 	    	System.out.println(TempArr[1]);
 	    	System.out.println(TempArr[2]);
 	}
+	public static void smallest_prime(String []arr)
+    {
+    	int []Arr=new int [arr.length];
+
+    	if(!Character.isDigit(arr[0].charAt(0))) {
+ 			System.out.println("Smallest Prime : Sorry this function run with array of numbers only !!");
+ 			return;}
+
+    	for(int i=0;i<arr.length;i++) {
+			Arr[i]=Integer.parseInt(arr[i]);
+		}
+
+     ArrayList<Integer> Prim_Arr = new ArrayList();
+     int x;
+     int temp;
+     boolean prime;
+         for (int i = 0; i < Arr.length; i++)
+         {
+
+
+             prime = true ;
+             if (Arr[i] == 2) {
+                 Prim_Arr.add(Arr[i]);
+                 continue ;
+                                 }
+
+         for (int j = 2; j < Arr[i]; j++)
+         {
+
+                 if (Arr[i] % j == 0)
+                 {
+                     prime = false ;
+                     break;
+                 }
+
+         }
+             if(prime)
+            Prim_Arr.add(Arr[i]);
+
+         }
+
+         int smallprime;
+         smallprime = Prim_Arr.get(0);
+         for (int i = 0; i < Prim_Arr.size(); i++) {
+             if (smallprime > Prim_Arr.get(i) )
+                 smallprime = Prim_Arr.get(i);
+         }
+
+                 System.out.println("The Smallest Prime is: " +smallprime);
+
+
+
+     }
 }
