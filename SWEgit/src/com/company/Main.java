@@ -49,7 +49,26 @@ public class Main {
 	}
 
 
-
+    public static void zeroIfLessThanZero(String[] arr ) throws NumberFormatException{
+        int temp[] = new int[arr.length];
+        try {
+            for (int i = 0; i < arr.length; i++) {
+                temp[i] = Integer.parseInt(arr[i]);
+            }
+        }
+        catch(NumberFormatException e){
+            System.out.println("ERROR in converting string to numeric value");
+            return;
+        }
+        System.out.print("zero if less than zero : {");
+        for(int i=0 ; i<temp.length ;i++){
+            if(temp[i]<0){
+                temp[i] = 0;
+            }
+            System.out.print(temp[i]+" ");
+        }
+        System.out.println("}");
+    }
 
     private static String []arr;
     public static void main(String[] args) {
@@ -114,7 +133,7 @@ public class Main {
 
                 break;
 
-            case 13: //get the min 3 numbers
+            case 13: getmin3nums(arr);
 
                 break;
 
@@ -131,7 +150,7 @@ public class Main {
                 break;
 
             case 17: //zero if less than zero
-
+                zeroIfLessThanZero(arr);
                 break;
 
             case 18: //execute all
@@ -142,6 +161,8 @@ public class Main {
             	Get_Median(arr);	//Function number 15
             	countPrims(arr);    //Function Number 8
                 MostReapetedValue(arr); //Function number 1
+                zeroIfLessThanZero(arr); //function 17
+		          getmin3nums(arr);   //Function number 13
                 break;
         }
 
@@ -257,7 +278,6 @@ public class Main {
      }
 
 
-	
     public static <T> void ReverseArray(T[] array) {
 	T copy[] = Arrays.copyOf(array, array.length);
         T temp;
@@ -317,4 +337,37 @@ public class Main {
 		}
 		System.out.println("The most repeated value is: "+mostValue);
 	}
+
+ public static void getmin3nums(String[]arr)
+	{	int TempArr[]=new int[arr.length];
+		
+		if(!Character.isDigit(arr[0].charAt(0))) {
+			System.out.println("Median : Sorry this function run with array of numbers only !!");
+			return;
+		}
+		
+		//Take Copy from the original array
+		for(int i=0;i<arr.length;i++) {
+			TempArr[i]=Integer.parseInt(arr[i]);
+		}
+	    
+		Arrays.sort(TempArr);
+		int[]temp=new int [TempArr.length];
+		int j=0;
+		for(int i=0;i<TempArr.length-1;i++)
+		{
+			if (TempArr[i] != TempArr[i+1]) 
+	            temp[j++] = TempArr[i]; 
+		}
+		 temp[j++] = TempArr[TempArr.length-1];
+		for(int i=0;i<j;i++)
+		{ 
+			TempArr[i]=temp[i]; 
+		}
+		System.out.println(" the minmum 3 numbers is : ");
+		System.out.println(TempArr[0]);
+	    	System.out.println(TempArr[1]);
+	    	System.out.println(TempArr[2]);
+	}
+
 }
