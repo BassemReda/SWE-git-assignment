@@ -115,7 +115,7 @@ public class Main {
 
                 break;
 
-            case 13: //get the min 3 numbers
+            case 13: getmin3nums(arr);
 
                 break;
 
@@ -142,6 +142,7 @@ public class Main {
             	Get_Median(arr);	//Function number 15
             	countPrims(arr);    //Function Number 8
                 MostReapetedValue(arr); //Function number 1
+		getmin3nums(arr);   //Function number 13
                 break;
         }
 
@@ -203,7 +204,6 @@ public class Main {
         }
     }
 
-	
     public static <T> void ReverseArray(T[] array) {
 	T copy[] = Arrays.copyOf(array, array.length);
         T temp;
@@ -264,4 +264,35 @@ public class Main {
 		System.out.println("The most repeated value is: "+mostValue);
 	}
 
+ public static void getmin3nums(String[]arr)
+	{	int TempArr[]=new int[arr.length];
+		
+		if(!Character.isDigit(arr[0].charAt(0))) {
+			System.out.println("Median : Sorry this function run with array of numbers only !!");
+			return;
+		}
+		
+		//Take Copy from the original array
+		for(int i=0;i<arr.length;i++) {
+			TempArr[i]=Integer.parseInt(arr[i]);
+		}
+	    
+		Arrays.sort(TempArr);
+		int[]temp=new int [TempArr.length];
+		int j=0;
+		for(int i=0;i<TempArr.length-1;i++)
+		{
+			if (TempArr[i] != TempArr[i+1]) 
+	            temp[j++] = TempArr[i]; 
+		}
+		 temp[j++] = TempArr[TempArr.length-1];
+		for(int i=0;i<j;i++)
+		{ 
+			TempArr[i]=temp[i]; 
+		}
+		System.out.println(" the minmum 3 numbers is : ");
+		System.out.println(TempArr[0]);
+	    	System.out.println(TempArr[1]);
+	    	System.out.println(TempArr[2]);
+	}
 }
