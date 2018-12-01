@@ -198,25 +198,35 @@ public class Main {
         System.out.println("Average : "+sum/arr.length);
         }
     }
-    public static void getmin3nums(int[]arr)
-	{
-		Arrays.sort(arr);
-		int[]temp=new int [arr.length];
-		int j=0;
-		for(int i=0;i<arr.length-1;i++)
-		{
-			if (arr[i] != arr[i+1]) 
-	            temp[j++] = arr[i]; 
+    public static void getmin3nums(String[]arr)
+	{	int TempArr[]=new int[arr.length];
+		
+		if(!Character.isDigit(arr[0].charAt(0))) {
+			System.out.println("Median : Sorry this function run with array of numbers only !!");
+			return;
 		}
-		 temp[j++] = arr[arr.length-1];
+		
+		//Take Copy from the original array
+		for(int i=0;i<arr.length;i++) {
+			TempArr[i]=Integer.parseInt(arr[i]);
+		}
+	    
+		Arrays.sort(TempArr);
+		int[]temp=new int [TempArr.length];
+		int j=0;
+		for(int i=0;i<TempArr.length-1;i++)
+		{
+			if (TempArr[i] != TempArr[i+1]) 
+	            temp[j++] = TempArr[i]; 
+		}
+		 temp[j++] = TempArr[TempArr.length-1];
 		for(int i=0;i<j;i++)
 		{ 
-			arr[i]=temp[i]; 
+			TempArr[i]=temp[i]; 
 		}
 		System.out.println(" the minmum 3 numbers is : ");
-		for(int i=0;i<=2;i++)
-		{
-			System.out.println(arr[i]);
-		}
+		System.out.println(TempArr[0]);
+	    	System.out.println(TempArr[1]);
+	    	System.out.println(TempArr[2]);
 	}
 }
