@@ -160,7 +160,7 @@ public class Main {
                 break;
 
             case 12: //get the max 3 numbers
-
+                GetMax3Nums(arr,siz);
                 break;
 
             case 13: getmin3nums(arr);
@@ -192,7 +192,7 @@ public class Main {
             	countPrims(arr);    //Function Number 8
                 MostReapetedValue(arr); //Function number 1
                 zeroIfLessThanZero(arr); //function 17
-
+                GetMax3Nums(arr,siz);
 		          Return_Primes(arr);
 
                 getmin3nums(arr);   //Function number 13
@@ -350,7 +350,7 @@ public class Main {
 	{	int TempArr[]=new int[arr.length];
 
 		if(!Character.isDigit(arr[0].charAt(0))) {
-			System.out.println("Median : Sorry this function run with array of numbers only !!");
+			System.out.println("Getmin3Nums : Sorry this function run with array of numbers only !!");
 			return;
 		}
 
@@ -377,6 +377,57 @@ public class Main {
 	    	System.out.println(TempArr[1]);
 	    	System.out.println(TempArr[2]);
 	}
+
+
+    static void GetMax3Nums(String arr[], int arr_size) 
+    { 
+        int i, f, s, th; 
+        int TempArr[]=new int[arr.length];
+     
+  if(!Character.isDigit(arr[0].charAt(0))) {
+			System.out.println("GetMax3Nums : Sorry this function run with array of numbers only !!");
+			return;
+		}
+        
+        for(int j=0;j<arr.length;j++)
+        {
+	TempArr[j]=Integer.parseInt(arr[j]);
+	}
+    
+        if (arr_size < 3) 
+        { 
+            System.out.print(" Invalid Input "); 
+            return; 
+        } 
+        
+        th = f = s = Integer.MIN_VALUE; 
+        for (i = 0; i < arr_size ; i ++) 
+        { 
+            if (TempArr[i] > f) 
+            { 
+                th = s; 
+                s = f; 
+                f = TempArr[i]; 
+            } 
+        
+             else if (TempArr[i] > s) 
+            { 
+                th = s; 
+                s = TempArr[i]; 
+            } 
+        
+            else if (TempArr[i] > th) 
+                th = TempArr[i]; 
+        } 
+        
+        System.out.println("Three largest elements are " + 
+                       f + " " + s + " " + th); 
+    } 
+  
+
+
+
+
 	public static void smallest_prime(String []arr)
     {
     	int []Arr=new int [arr.length];
@@ -431,3 +482,4 @@ public class Main {
 
      }
 }
+
