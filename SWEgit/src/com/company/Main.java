@@ -1,6 +1,5 @@
 package com.company;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -88,7 +87,7 @@ public class Main {
                 break;
 
             case 6: //check palindrome
-
+                IsPalindrome(arr);
                 break;
 
             case 7: //check sorted
@@ -100,7 +99,7 @@ public class Main {
                 break;
 
             case 9: //reverse array
-            	ReverseArray(arr);
+
                 break;
 
             case 10: //shift array
@@ -136,8 +135,8 @@ public class Main {
                 break;
 
             case 18: //execute all
+                IsPalindrome(arr);  //Function number 6
                 checkSorted();      //Function number 7
-                ReverseArray(arr);  // Function number 9
                 GetAverage(arr);    // Function number 14
             	Get_Median(arr);	//Function number 15
             	countPrims(arr);    //Function Number 8
@@ -203,24 +202,10 @@ public class Main {
         }
     }
 
-	
-    public static <T> void ReverseArray(T[] array) {
-	T copy[] = Arrays.copyOf(array, array.length);
-        T temp;
-        for (int i = 0; i < copy.length / 2; i++) {
-            temp = copy[i];
-            copy[i] = copy[copy.length - 1 - i];
-            copy[copy.length - 1 - i] = temp;
-
-        }
-        System.out.println("The reversed array ---> " + Arrays.toString(copy));
-    }
-
-
     public static void countPrims(String[] arr){
         int count = 0;
         if(!Character.isDigit(arr[0].charAt(0))) {
-            System.out.println("countPrims : Sorry this function run with array of numbers only !!");
+            System.out.println("Median : Sorry this function run with array of numbers only !!");
             return;
 	}
         else {
@@ -263,5 +248,41 @@ public class Main {
 		}
 		System.out.println("The most repeated value is: "+mostValue);
 	}
+////palindrome
+   public static void IsPalindrome(String arr[])
+    {
+        System.out.println("This is check palindrome function");
+        int palindrome = 0 ;
+        char c;
+        char Array[]=new char[arr.length];
+        for (int i=0;i<arr.length;i++)
+        {
+            c=arr[i].charAt(0);
+            Array[i]= c;
 
+        }
+
+        for(int j=0;j<((Array.length+1)/2);j++)
+        {
+            if(Array[j]!=Array[arr.length-j-1])
+            {
+                palindrome=1;
+                break;
+            }
+
+
+        }
+        if(palindrome==0)
+        {
+            System.out.println("true");
+
+        }
+        else
+        {
+            System.out.println("false");
+        }
+
+
+
+    }
 }
