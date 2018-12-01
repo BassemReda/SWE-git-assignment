@@ -191,6 +191,7 @@ public class Main {
                 MostReapetedValue(arr); //Function number 1
                 zeroIfLessThanZero(arr); //function 17
 		          getmin3nums(arr);   //Function number 13
+		Return_Primes(arr);
                 break;
         }
 
