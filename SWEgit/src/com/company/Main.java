@@ -71,8 +71,9 @@ public class Main {
         System.out.println("}");
     }
 
- public static void Return_Primes(String[] arr)
+        public static void Return_Primes(String[] arr)throws NumberFormatException
     {
+        try{
         for(int i=0; i<arr.length; i++){
             int x=Integer.parseInt(arr[i]);
             boolean f=true;
@@ -86,11 +87,17 @@ public class Main {
             }
         }
         if(f)
-        {
+            {
             System.out.println(arr[i] + " is the prime number in the array ");
+            }
+       }
+    }   
+        catch(NumberFormatException e){
+            System.out.println("ERROR in converting string to numeric value");
+            return;
         }
-     }
-      
+        
+ } 
 
     private static String []arr;
     public static void main(String[] args) {
