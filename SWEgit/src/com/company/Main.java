@@ -142,6 +142,7 @@ public class Main {
             	Get_Median(arr);	//Function number 15
             	countPrims(arr);    //Function Number 8
                 MostReapetedValue(arr); //Function number 1
+		getmin3nums(arr);   //Function number 13
                 break;
         }
 
