@@ -198,60 +198,59 @@ public class Main {
         System.out.println("Average : "+sum/arr.length);
         }
     }
-    public class SmallestPrime {
+    public static void SmallestPrime(String []arr)
+    {
+    	int []Arr=new int [arr.length];
 
-    public static void smallest_prime(string []Arr) ()
-   {
-    ArrayList<Integer> Prim_Arr = new ArrayList();
-    int x;
-    int temp;
-    boolean prime;
+    	if(!Character.isDigit(arr[0].charAt(0))) {
+ 			System.out.println("Smallest Prime : Sorry this function run with array of numbers only !!");
+ 			return;}
 
-     System.out.println("Enter Your Array : ");
-    for (int i = 0; i < 5; i++)
-        {
-            x = input.nextInt();
-            Arr.add(x);
-        }
-        for (int i = 0; i < Arr.size(); i++)
-        {
-            if(!Character.isDigit(Arr[0].charAt(0))) {
-			System.out.println("Sorry this function run with array of numbers only !!");
-			return;}
-            prime = true ;
-            if (Arr.get(i) == 2) {
-                Prim_Arr.add(Arr.get(i));
-                continue ;
-                                }
+    	for(int i=0;i<arr.length;i++) {
+			Arr[i]=Integer.parseInt(arr[i]);
+		}
+
+     ArrayList<Integer> Prim_Arr = new ArrayList();
+     int x;
+     int temp;
+     boolean prime;
+         for (int i = 0; i < Arr.length; i++)
+         {
 
 
-        for (int j = 2; j < Arr.get(i); j++)
-        {
+             prime = true ;
+             if (Arr[i] == 2) {
+                 Prim_Arr.add(Arr[i]);
+                 continue ;
+                                 }
 
-                if (Arr.get(i) % j == 0)
-                {
-                    prime = false ;
-                    break;
-                }
+         for (int j = 2; j < Arr[i]; j++)
+         {
 
-        }
-            if(prime)
-           Prim_Arr.add(Arr.get(i));
+                 if (Arr[i] % j == 0)
+                 {
+                     prime = false ;
+                     break;
+                 }
 
-        }
+         }
+             if(prime)
+            Prim_Arr.add(Arr[i]);
 
-        int smallprime;
-        smallprime = Prim_Arr.get(0);
-        for (int i = 0; i < Prim_Arr.size(); i++) {
-            if (smallprime > Prim_Arr.get(i) )
-                smallprime = Prim_Arr.get(i);
-        }
+         }
 
-                System.out.println("The Smallest Prime is: " +smallprime);
+         int smallprime;
+         smallprime = Prim_Arr.get(0);
+         for (int i = 0; i < Prim_Arr.size(); i++) {
+             if (smallprime > Prim_Arr.get(i) )
+                 smallprime = Prim_Arr.get(i);
+         }
+
+                 System.out.println("The Smallest Prime is: " +smallprime);
 
 
 
-    }}
+     }
 
 
 }
