@@ -1,4 +1,5 @@
-package com.company;
+package com.company
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -66,7 +67,7 @@ public class Main {
         int choice = sc.nextInt();
         switch (choice){
             case 1: //most repeated value
-
+                MostReapetedValue(arr);
                 break;
 
             case 2: //sort
@@ -94,11 +95,11 @@ public class Main {
                 break;
 
             case 8: //count primes
-
+                countPrims(arr);
                 break;
 
             case 9: //reverse array
-
+            	ReverseArray(arr);
                 break;
 
             case 10: //shift array
@@ -135,9 +136,12 @@ public class Main {
 
             case 18: //execute all
                 checkSorted();      //Function number 7
+                ReverseArray(arr);  // Function number 9
                 GetAverage(arr);    // Function number 14
-            	Get_Median(arr);    //Function number 15
                 SmallestPrime();    //Function number 5
+            	Get_Median(arr);	//Function number 15
+            	countPrims(arr);    //Function Number 8
+                MostReapetedValue(arr); //Function number 1
                 break;
         }
 
@@ -253,4 +257,64 @@ public class Main {
      }
 
 
+	
+    public static <T> void ReverseArray(T[] array) {
+	T copy[] = Arrays.copyOf(array, array.length);
+        T temp;
+        for (int i = 0; i < copy.length / 2; i++) {
+            temp = copy[i];
+            copy[i] = copy[copy.length - 1 - i];
+            copy[copy.length - 1 - i] = temp;
+
+        }
+        System.out.println("The reversed array ---> " + Arrays.toString(copy));
+    }
+
+
+    public static void countPrims(String[] arr){
+        int count = 0;
+        if(!Character.isDigit(arr[0].charAt(0))) {
+            System.out.println("countPrims : Sorry this function run with array of numbers only !!");
+            return;
+	}
+        else {
+            for (int i = 0; i< arr.length; i++){
+                int num = Integer.parseInt(arr[i]);
+                boolean flag = true;
+                for (int j = 2; j<num; j++){
+                    if(num%j == 0)
+                        flag = false;
+                 }
+                if(flag){
+                    count++;
+                }
+            }
+            System.out.println("Prime Numbers : "+count+" Numbers");
+        }
+
+    }
+ 
+  public static void MostReapetedValue(String arr[])
+	{
+		String mostValue="";
+		int counter=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			String tempVal=arr[i];
+			int tmpCounter=0;
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[j].equals(tempVal))
+				{
+					tmpCounter++;	
+				}
+			}
+			if(tmpCounter>counter)
+			{
+				mostValue=tempVal;
+				counter=tmpCounter;
+			}
+		}
+		System.out.println("The most repeated value is: "+mostValue);
+	}
 }
