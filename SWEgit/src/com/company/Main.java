@@ -71,6 +71,27 @@ public class Main {
         System.out.println("}");
     }
 
+ public static void Return_Primes(String[] arr)
+    {
+        for(int i=0; i<arr.length; i++){
+            int x=Integer.parseInt(arr[i]);
+            boolean f=true;
+        for(int j=2 ; j<x ; j++)
+        {
+            
+            if(x%j==0)
+            {
+                f=false;
+                
+            }
+        }
+        if(f)
+        {
+            System.out.println(arr[i] + " is the prime number in the array ");
+        }
+     }
+      
+
     private static String []arr;
     public static void main(String[] args) {
         System.out.print("Enter array size: ");
@@ -147,7 +168,7 @@ public class Main {
                 break;
 
             case 16: //return only primes
-
+		Return_Primes(arr);
                 break;
 
             case 17: //zero if less than zero
