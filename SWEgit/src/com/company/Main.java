@@ -95,7 +95,7 @@ public class Main {
                 break;
 
             case 3: //shuffle
-
+	shuffle(arr);
                 break;
 
             case 4: //find largest prime
@@ -155,6 +155,7 @@ public class Main {
                 break;
 
             case 18: //execute all
+	shuffle(arr);  //Function number 3
                 checkSorted();      //Function number 7
                 ReverseArray(arr);  // Function number 9
                 GetAverage(arr);    // Function number 14
@@ -283,6 +284,33 @@ public class Main {
 		}
 		System.out.println("The most repeated value is: "+mostValue);
 	}
+
+    public static void shuffle(String[] arr) {
+
+        String[] arr2 = new String[arr.length];
+        for (int i = 0, j = 0; i <= arr.length - 1; i++) {
+            arr2[j] = arr[i];
+            j++;
+        }
+        if (!Character.isDigit(arr2[0].charAt(0))) {
+            System.out.println("Sorry the shuffle function run with array of Integers only ");
+            return;
+        } else {
+            int name_num_of_element = arr2.length;
+            for (int i = 0; i < name_num_of_element; i++) {
+                int s = i + (int) (Math.random() * (name_num_of_element - i));
+                String tmp = arr2[s];
+                arr2[s] = arr2[i];
+                arr2[i] = tmp;
+
+            }
+        }
+        System.out.println("shuffle array : ");
+        for (int i = 0; i < arr2.length; i++) {
+            System.out.print(arr2[i] + " ");
+        }
+        System.out.println();
+    }
 
  public static void getmin3nums(String[]arr)
 	{	int TempArr[]=new int[arr.length];
