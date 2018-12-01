@@ -50,7 +50,26 @@ public class Main {
 	}
 
 
-
+    public static void zeroIfLessThanZero(String[] arr ) throws NumberFormatException{
+        int temp[] = new int[arr.length];
+        try {
+            for (int i = 0; i < arr.length; i++) {
+                temp[i] = Integer.parseInt(arr[i]);
+            }
+        }
+        catch(NumberFormatException e){
+            System.out.println("ERROR in converting string to numeric value");
+            return;
+        }
+        System.out.print("zero if less than zero : {");
+        for(int i=0 ; i<temp.length ;i++){
+            if(temp[i]<0){
+                temp[i] = 0;
+            }
+            System.out.print(temp[i]+" ");
+        }
+        System.out.println("}");
+    }
 
     private static String []arr;
     public static void main(String[] args) {
@@ -132,7 +151,7 @@ public class Main {
                 break;
 
             case 17: //zero if less than zero
-
+                zeroIfLessThanZero(arr);
                 break;
 
             case 18: //execute all
@@ -142,7 +161,8 @@ public class Main {
             	Get_Median(arr);	//Function number 15
             	countPrims(arr);    //Function Number 8
                 MostReapetedValue(arr); //Function number 1
-		getmin3nums(arr);   //Function number 13
+                zeroIfLessThanZero(arr); //function 17
+		          getmin3nums(arr);   //Function number 13
                 break;
         }
 
