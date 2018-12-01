@@ -296,9 +296,15 @@ public class Main {
 	    	System.out.println(TempArr[2]);
 	}
 
-   static void GetMax3Nums(int arr[], int arr_size) 
+    static void GetMax3Nums(String arr[], int arr_size) 
     { 
         int i, f, s, th; 
+        int TempArr[]=new int[arr.length];
+        
+        for(int j=0;j<arr.length;j++)
+        {
+	TempArr[j]=Integer.parseInt(arr[j]);
+	}
     
         if (arr_size < 3) 
         { 
@@ -309,28 +315,27 @@ public class Main {
         th = f = s = Integer.MIN_VALUE; 
         for (i = 0; i < arr_size ; i ++) 
         { 
-            if (arr[i] > f) 
+            if (TempArr[i] > f) 
             { 
                 th = s; 
                 s = f; 
-                f = arr[i]; 
+                f = TempArr[i]; 
             } 
         
-
-            else if (arr[i] > s) 
+             else if (TempArr[i] > s) 
             { 
                 th = s; 
-                s = arr[i]; 
+                s = TempArr[i]; 
             } 
         
-            else if (arr[i] > th) 
-                th = arr[i]; 
+            else if (TempArr[i] > th) 
+                th = TempArr[i]; 
         } 
         
         System.out.println("Three largest elements are " + 
                        f + " " + s + " " + th); 
-    }
-}
+    } 
+  
 
 
 
