@@ -120,8 +120,8 @@ public class Main {
                 break;
 
             case 2: //sort
-
-                break;
+	 	sort(arr);  
+    		break;
 
             case 3: //shuffle
 	shuffle(arr);
@@ -191,6 +191,7 @@ public class Main {
             	Get_Median(arr);	//Function number 15
             	countPrims(arr);    //Function Number 8
                 MostReapetedValue(arr); //Function number 1
+		sort (arr); // function number 2 
                 zeroIfLessThanZero(arr); //function 17
                 GetMax3Nums(arr,siz);
 		          Return_Primes(arr);
@@ -481,5 +482,46 @@ public class Main {
 
 
      }
+
+
+   public static void sort(String[] arr) 
+	{
+	   int a[]=new int[arr.length];
+	   int n=arr.length;
+
+		if(!Character.isDigit(arr[0].charAt(0))) {
+			System.out.println("sort : Sorry this function run with array of numbers only !!");
+			return;
+		}
+
+		//Take Copy from the original array
+		for(int i=0;i<arr.length;i++) {
+			a[i]=Integer.parseInt(arr[i]);
+		}
+
+		
+		for (int i = 0; i < n; i++) 
+		{
+			for (int j = i + 1; j < n; j++) 
+			{
+				if (a[i] > a[j]) 
+				{
+					int temp;
+					temp = a[i];
+					a[i] = a[j];
+					a[j] = temp;
+				}
+			}
+		}
+
+		 		
+		System.out.println("Ascending Order:");
+		for (int i = 0; i < n ; i++) 
+		{
+			System.out.print(a[i]+" ");
+		}
+		System.out.println();
+    
+}
 }
 
