@@ -295,18 +295,8 @@ public class Main {
 	    	System.out.println(TempArr[1]);
 	    	System.out.println(TempArr[2]);
 	}
-}
 
-
-package GetMax3Nums;
-
-/**
- *
- * @author Blancko
- */
-class GetMax3Nums 
-{ 
-    static void printlargest(int arr[], int arr_size) 
+   static void GetMax3Nums(int arr[], int arr_size) 
     { 
         int i, f, s, th; 
     
@@ -339,13 +329,8 @@ class GetMax3Nums
         
         System.out.println("Three largest elements are " + 
                        f + " " + s + " " + th); 
-    } 
-  
-    public static void main (String[] args) 
-    { 
-        int arr[] = {12, 13, 1, 10, 34, 1}; 
-        int n = arr.length; 
-        System.out.println("Get Maximum 3 Numbers");
-        printlargest(arr, n); 
-    } 
-} 
+    }
+}
+
+
+
